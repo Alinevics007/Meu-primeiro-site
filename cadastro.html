@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>formulario</title>
+    <link rel="stylesheet" href="cadastro.css">
+</head>
+<body>
+    <header>
+        <h1>Quero me cadastrar</h1>
+    </header>
+    <section>
+        <form name="cadastro" method="post" action="grava.jsp"> 
+            <div> 
+                <label>Nome</label>
+                <input type="text" placeholder="Digite seu nome" name="txtNome" autocomplete="off">
+                <span id="erronome"></span>
+            </div>
+            <div>
+                <label> Sobrenome </label>
+                <input type="text" placeholder="Digite seu sobrenome" name="txtSobrenome" required autocomplete="off">
+                <span id="errosobre"></span>
+            </div>
+            <div>
+                <label> Email </label>
+                <input type="text" placeholder="Digite seu Email" name="txtEmail" required autocomplete="off">
+                <span id="erroemail"></span>
+                
+            </div>
+            <div>
+                <label> Senha </label>
+                <input type="password" placeholder="Crie uma Senha" name="txtSenha" required autocomplete="off">
+                <span id="errosenha"></span>
+                <button type="button" id="olhinho"></button> 
+            </div>
+            <div>
+                <label> Confirmar Senha</label>
+                <input type="password" placeholder="Repita sua Senha" name="Confirmar_senha" autocomplete="off">
+                <span id="erroconfsenha"></span>
+            </div>
+            <div>
+               <input type="button" value="cadastrar-se" onclick="verificar()">
+            </div>
+             </form>
+             
+    </section>
+    
+
+    <script>
+         function verificar()
+        {
+            var enviar = true ;
+            
+            var n = document.cadastro.txtNome.value;
+            if(n.length == 0) {
+                enviar = false;
+                document.querySelector('#erronome').textContent = "*Este campo é obrigatório" ;
+            }
+            
+            var s = document.cadastro.txtSobrenome.value;
+            if(s.length == 0) {
+                enviar = false;
+                document.querySelector('#errosobre').textContent = "*Este campo é obrigatório" ;
+            }
+            
+           
+            var e = document.cadastro.txtEmail.value ;
+            if ( e.indexOf("@") < 0 || e.length == 0)
+            {
+                enviar = false ;
+                document.querySelector('#erroemail').textContent = "*E-mail inválido" ;
+            }
+
+            var senha = document.cadastro.txtSenha.value ;
+            if(senha.length < 6){
+                enviar = false ; 
+                document.querySelector('#errosenha').textContent = "*A senha deve conter mais de 6 caracteres!"
+            }
+
+            var confsenha = document.cadastro.Confirmar_senha.value ;
+            if(confsenha != senha){
+                enviar = false;
+                document.querySelector("#erroconfsenha").textContent = "*A senha está diferente!"
+            }
+            
+            if(enviar){
+                document.cadastro.submit() ;
+            }
+
+        }
+
+
+    </script>
+
+</body>
+</html>

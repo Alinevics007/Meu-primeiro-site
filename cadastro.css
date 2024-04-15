@@ -1,0 +1,66 @@
+*{
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+   
+}
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color:rgb(34, 38, 85);
+    color: white;
+    font-family: Cambria, arial;
+   
+  
+}
+section{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 90vh;
+
+    
+}
+
+form{
+    font-family: arial;
+}
+form div{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+form input, form textarea{
+    outline: unset;
+    padding: 15px;
+   width: 300px;
+    border: 1px solid cornflowerblue;
+    border-radius: 20px;
+}
+form input:focus, form textarea:focus{
+    background-color: wheat;
+}
+
+form input[type=button] 
+{
+    background-color: rgb(34, 38, 85) !important;
+    color: white;
+    cursor: pointer;
+
+}
+
+form label {
+    margin-left: 10px;
+    
+}
+
+
+#erronome, #errosobre, #erroemail, #errosenha, #erroconfsenha {
+    color: red;
+    padding-left: 10px;
+    text-align: justify;
+}
